@@ -1,0 +1,72 @@
+{
+  "name": "watchman",
+  "version": "1.0.0",
+  "description": "A Slack app with RTM and WebAPI integration along with API with express",
+  "license": "MIT",
+  "author": "Tanuj Sharma",
+  "scripts": {
+    "build": "node build.js",
+    "lint": "tslint --project \"tsconfig.json\"",
+    "start": "node -r module-alias/register ./dist --env=production",
+    "start:dev": "nodemon",
+    "test": "nodemon --config ./spec/nodemon.json"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "ts, html",
+    "ignore": [
+      "src/public"
+    ],
+    "exec": "ts-node -r tsconfig-paths/register ./src"
+  },
+  "_moduleAliases": {
+    "@utility": "dist/utility",
+    "@osl-slack-bolt": "dist/bolt",
+    "@bin": "dist/bin",
+    "@lib": "dist/lib",
+    "@watchman-hooks": "dist/bin/webhooks",
+    "@typing": "dist/typings",
+    "@models": "dist/models"
+  },
+  "dependencies": {
+    "@slack/bolt": "2.1.1",
+    "@types/validator": "^13.1.0",
+    "axios": "^0.21.1",
+    "command-line-args": "^5.1.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "helmet": "^3.23.3",
+    "http-status-codes": "^1.4.0",
+    "module-alias": "^2.2.2",
+    "moment": "^2.27.0",
+    "moment-timezone": "^0.5.31",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.1.0",
+    "node-cron": "^2.0.3",
+    "sequelize": "^6.3.3",
+    "winston-daily-rotate-file": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/command-line-args": "^5.0.0",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.7",
+    "@types/express": "^4.17.7",
+    "@types/helmet": "0.0.47",
+    "@types/morgan": "^1.9.1",
+    "@types/node": "^14.0.20",
+    "@types/node-cron": "^2.0.3",
+    "fs-extra": "^9.0.1",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.6",
+    "winston": "^3.3.3"
+  }
+}
